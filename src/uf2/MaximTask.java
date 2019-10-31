@@ -3,6 +3,8 @@ package uf2;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
+import javax.sql.PooledConnection;
+
 public class MaximTask extends RecursiveTask<Short> {
 	//private static final int LLINDAR=10000000;
 	private static final int LLINDAR=10000000;
@@ -13,6 +15,7 @@ public class MaximTask extends RecursiveTask<Short> {
 		this.arr = arr;
 		this.inici = inici;
 		this.fi = fi;
+		System.out.println("Comptador: " + 0 + " Inici " + inici + " Fi " + fi);
 	}
 
 	private short getMaxSeq(){
@@ -52,7 +55,7 @@ public class MaximTask extends RecursiveTask<Short> {
 		// Mira el número de processadors
 		System.out.println("Inici càlcul");
 		ForkJoinPool pool = new ForkJoinPool();
-
+		
 		int inici=0;
 		int fi= data.length;
 		MaximTask tasca = new MaximTask(data, inici, fi);
